@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilan Detayı</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .product-container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(100% - 30px);
+            margin: 0 20px 20px 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center; 
+        }
+
+        img {
+            max-width: 50%; 
+            height: auto;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center; 
+        }
+
+        strong {
+            color: #333;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header a:hover {
+    color: inherit;
+}
+    .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/products/">
+        <h1>BeSahibinden</h1>
+        </a>
+    </header>
+
+    <main>
+        <ul>
+            <div class="product-container">
+                <h2>{{ product.name }}</h2>
+                <img src="{{ product.photo.url }}" alt="{{ product.product_name }} Fotoğrafı">
+                <p><strong>Ürün detayı:</strong> {{ product.description }}</p>
+                <p><strong>Ürün fiyatı:</strong> {{ product.price }} TL</p>
+            </div>
+        </ul>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilanlar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+         .product-container {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: calc(35% - 30px);
+        margin: 0 20px 20px 0;
+        box-sizing: border-box;
+        position: relative;
+         }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; 
+            max-width: 960px; 
+            margin: 20px auto;
+        }
+
+
+        ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            width: calc(30% - 20px); 
+            box-sizing: border-box; 
+        }
+
+        li:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 10px;
+            display: flex; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #333;
+        }
+        button {
+    margin-left: 50px;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+      header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header a:hover {
+    color: inherit;
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/products/">
+        <h1>BeSahibinden</h1>
+        </a>
+        <div class="search-container">
+            <form action="{% url 'search-product' %}" method="get">
+                <input type="text" class="search-input" name="q" placeholder="Ara...">
+                <button type="submit" class="search-button">Ara</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <ul>
+              {% for product in products %}
+                <div class="product-container">
+                    <img src="{{ product.photo.url }}" alt="{{ product.product_name }} Fotoğrafı">
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.description }}</p>
+                    <strong>{{ product.price }} TL</strong>
+                    <a href="{% url 'product-detail' product.id %}">
+                         <button>Detayı Gör</button>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </ul>
+    </main>
+
+</body>
+</html>
